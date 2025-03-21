@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبار عالم السايبر - رمضان</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+    :root {
+      --neon-blue: #00f3ff;
+      --neon-pink: #ff00ff;
+      --neon-purple: #9600ff;
+      --dark-bg: #0a0a12;
+      --cyber-yellow: #f0ff00;
+      --cyber-green: #00ff66;
+      --cyber-red: #ff2d6d;
+      --ramadan-gold: #ffb700;
+      --ramadan-teal: #00b3a6;
+      --ramadan-purple: #8e44ad;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: #fff;
+      font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://cdnb.artstation.com/p/assets/images/images/007/694/435/large/miguel-lobo-cybercity-07-05-2016-x2.jpg?1507889739');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ===== شاشة البداية ===== */
+    #welcome-screen {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgba(10, 10, 30, 0.95));
+      border: 1px solid var(--ramadan-gold);
+      box-shadow: 0 0 30px rgba(255, 183, 0, 0.3), inset 0 0 30px rgba(255, 183, 0, 0.1);
+      padding: 50px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      animation: pulseRamadan 4s infinite alternate;
+      margin: 40px auto;
+      max-width: 850px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes pulseRamadan {
+      0% {
+        box-shadow: 0 0 20px rgba(255, 183, 0, 0.3), inset 0 0 20px rgba(255, 183, 0, 0.1);
+      }
+      100% {
+        box-shadow: 0 0 40px rgba(255, 183, 0, 0.5), inset 0 0 40px rgba(255, 183, 0, 0.2);
+      }
+    }
+
+    .cyber-logo {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .cyber-logo h1 {
+      font-size: 4.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      background: linear-gradient(90deg, var(--neon-blue), var(--ramadan-gold), var(--neon-purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px rgba(255, 183, 0, 0.5);
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .cyber-logo h1::after {
+      content: "CYBER TEST";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      background: linear-gradient(90deg, var(--ramadan-gold), var(--ramadan-teal));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .cyber-logo p {
+      font-size: 1.5rem;
+      color: var(--ramadan-gold);
+      margin-top: 10px;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(255, 183, 0, 0.5);
+    }
+
+    .user-input {
+      margin: 40px 0;
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .user-input input {
+      width: 100%;
+      padding: 15px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 2px solid var(--ramadan-gold);
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      outline: none;
+      text-align: center;
+    }
+
+    .user-input input:focus {
+      border-color: var(--neon-pink);
+      box-shadow: 0 0 15px rgba(255, 183, 0, 0.5);
+    }
+
+    .user-input input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .start-btn {
+      background: linear-gradient(45deg, var(--ramadan-gold), var(--ramadan-purple));
+      color: white;
+      border: none;
+      padding: 15px 60px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(255, 183, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .start-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background: linear-gradient(45deg, #555, #777);
+      box-shadow: none;
+    }
+
+    .start-btn::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(45deg);
+      transition: all 0.5s ease;
+    }
+
+    .start-btn:hover:not(:disabled) {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 183, 0, 0.7);
+    }
+
+    .start-btn:hover::before {
+      left: 100%;
+    }
+
+    .decorative-element {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* Ramadan decorative elements */
+    .ramadan-crescent {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      box-shadow: 15px 0 0 var(--ramadan-gold);
+      transform: rotate(-10deg);
+      filter: drop-shadow(0 0 10px rgba(255, 183, 0, 0.7));
+      z-index: 5;
+    }
+
+    /* إضافة هلال مضيء بليد أصفر */
+    .ramadan-crescent.glowing {
+      filter: drop-shadow(0 0 20px var(--cyber-yellow)) drop-shadow(0 0 30px var(--cyber-yellow));
+    }
+
+    .ramadan-lantern {
+      position: absolute;
+      width: 60px;
+      height: 90px;
+      background: linear-gradient(180deg, var(--ramadan-gold), var(--ramadan-purple));
+      border-radius: 10px 10px 40px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      filter: drop-shadow(0 0 15px rgba(255, 183, 0, 0.5));
+      z-index: 5;
+    }
+
+    .ramadan-lantern::before {
+      content: "";
+      width: 30px;
+      height: 15px;
+      background: var(--ramadan-gold);
+      border-radius: 10px 10px 0 0;
+      position: absolute;
+      top: -15px;
+    }
+
+    .ramadan-lantern::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 183, 0, 0.4);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px 10px rgba(255, 183, 0, 0.2);
+      animation: lanternGlow 2s infinite alternate;
+    }
+
+    @keyframes lanternGlow {
+      from { opacity: 0.5; box-shadow: 0 0 20px 10px rgba(255, 183, 0, 0.2); }
+      to { opacity: 1; box-shadow: 0 0 30px 15px rgba(255, 183, 0, 0.4); }
+    }
+
+    .ramadan-string {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 40px;
+      background: var(--ramadan-gold);
+    }
+
+    .ramadan-stars {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 10px solid var(--ramadan-gold);
+      filter: drop-shadow(0 0 5px rgba(255, 183, 0, 0.7));
+    }
+
+    .ramadan-stars::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: -5px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 10px solid var(--ramadan-gold);
+    }
+
+    /* Add LED effect to existing circuit lines */
+    .circuit-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(90deg, transparent 99%, var(--ramadan-gold) 99.5%, transparent 100%),
+        linear-gradient(0deg, transparent 99%, var(--ramadan-gold) 99.5%, transparent 100%);
+      background-size: 30px 30px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    /* Ramadan-themed LED circuits */
+    .ramadan-circuits {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ramadan-led {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ramadan-gold);
+      animation: ledBlink 1.5s infinite alternate;
+      box-shadow: 0 0 8px 2px rgba(255, 183, 0, 0.5);
+      z-index: 5;
+    }
+
+    @keyframes ledBlink {
+      0%, 80% { opacity: 1; }
+      81%, 100% { opacity: 0.4; }
+    }
+
+    .welcome-note {
+      margin-top: 40px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .welcome-note span {
+      color: var(--ramadan-gold);
+      font-weight: bold;
+    }
+
+    /* Ramadan welcome message */
+    .ramadan-wishes {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: var(--ramadan-gold);
+      font-weight: bold;
+      animation: fadeIn 2s ease;
+      text-shadow: 0 0 10px rgba(255, 183, 0, 0.5);
+    }
+
+    /* ===== شاشة الاختبار ===== */
+    #quiz-container {
+      display: none;
+    }
+
+    .cyber-title {
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px var(--ramadan-gold), 0 0 20px var(--ramadan-gold);
+      padding: 25px 0;
+      border-bottom: 3px solid var(--ramadan-gold);
+      border-top: 3px solid var(--ramadan-gold);
+      position: relative;
+      background: linear-gradient(to right, transparent, rgba(255, 183, 0, 0.1), transparent);
+    }
+
+    .cyber-title h2 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin: 0;
+      animation: glowRamadan 2s infinite alternate;
+      font-weight: 900;
+    }
+
+    .cyber-title p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: var(--ramadan-gold);
+    }
+
+    .user-info {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-top: 15px;
+      border: 1px solid var(--ramadan-gold);
+    }
+
+    .user-info span {
+      color: var(--ramadan-gold);
+      font-weight: bold;
+    }
+
+    @keyframes glowRamadan {
+      from {
+        text-shadow: 0 0 5px var(--ramadan-gold), 0 0 10px var(--ramadan-gold);
+      }
+      to {
+        text-shadow: 0 0 10px var(--ramadan-gold), 0 0 20px var(--ramadan-gold), 0 0 30px var(--ramadan-purple);
+      }
+    }
+
+    .timer {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 35px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid var(--ramadan-gold);
+      color: var(--ramadan-gold);
+      box-shadow: 0 0 20px rgba(255, 183, 0, 0.3);
+      position: relative;
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .timer-container {
+      text-align: center;
+      position: relative;
+    }
+
+    .timer::before, .timer::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 30px;
+      height: 2px;
+      background-color: var(--ramadan-gold);
+    }
+
+    .timer::before {
+      left: -40px;
+      transform: translateY(-50%);
+    }
+
+    .timer::after {
+      right: -40px;
+      transform: translateY(-50%);
+    }
+
+    .question {
+      background: rgba(10, 10, 18, 0.85);
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      border-left: 6px solid var(--ramadan-gold);
+      transform: perspective(800px) rotateX(2deg);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .question::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--ramadan-gold), var(--ramadan-purple));
+      opacity: 0.7;
+    }
+
+    .question:hover {
+      transform: perspective(800px) rotateX(0deg) translateY(-5px);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .question h3 {
+      margin-top: 0;
+      color: var(--ramadan-gold);
+      font-size: 1.5rem;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 183, 0, 0.3);
+      position: relative;
+    }
+
+    .question h3::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, var(--ramadan-gold), transparent);
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .option {
+      background-color: rgba(25, 25, 35, 0.85);
+      padding: 15px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #333;
+      font-size: 1.1rem;
+    }
+
+    .option:hover {
+      background-color: rgba(40, 40, 60, 0.9);
+      transform: translateY(-3px);
+      border: 1px solid var(--ramadan-gold);
+      box-shadow: 0 0 15px rgba(255, 183, 0, 0.4);
+    }
+
+    .option.selected {
+      background-color: rgba(255, 183, 0, 0.2);
+      border: 2px solid var(--ramadan-gold);
+      box-shadow: 0 0 20px rgba(255, 183, 0, 0.4), inset 0 0 10px rgba(255, 183, 0, 0.2);
+    }
+
+    .option.selected::before {
+      content: "✓";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: var(--ramadan-gold);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .btn-submit {
+      background: linear-gradient(45deg, var(--ramadan-gold), var(--ramadan-purple), var(--neon-pink));
+      color: #fff;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 50px;
+      display: block;
+      margin: 40px auto;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+      box-shadow: 0 0 25px rgba(255, 183, 0, 0.5);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(45deg);
+      transition: all 0.5s ease;
+    }
+
+    .btn-submit:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(255, 183, 0, 0.7);
+    }
+
+    .btn-submit:hover::before {
+      left: 100%;
+    }
+
+    /* ===== شاشة النتائج ===== */
+    #results {
+      display: none;
+      background: rgba(10, 10, 18, 0.9);
+      padding: 40px;
+      border-radius: 15px;
+      border: 3px solid var(--ramadan-gold);
+      box-shadow: 0 0 30px rgba(255, 183, 0, 0.5), inset 0 0 30px rgba(255, 183, 0, 0.2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .results h2 {
+      color: var(--ramadan-gold);
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px var(--ramadan-gold);
+      position: relative;
+      display: inline-block;
+    }
+
+    .results h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--ramadan-gold), transparent);
+    }
+
+    .user-result {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .user-result span {
+      color: var(--ramadan-gold);
+      font-weight: bold;
+    }
+
+    .score-container {
+      margin: 30px 0;
+      position: relative;
+    }
+
+    .score {
+      font-size: 6rem;
+      font-weight: 900;
+      color: var(--ramadan-gold);
+      text-shadow: 0 0 15px var(--ramadan-gold);
+      position: relative;
+      display: inline-block;
+    }
+
+    .score::before, .score::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 4px;
+      top: 50%;
+      background: linear-gradient(to right, transparent, var(--ramadan-gold));
+    }
+
+    .score::before {
+      right: 130%;
+      transform: translateY(-50%);
+    }
+
+    .score::after {
+      left: 130%;
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .score-message {
+      margin: 30px 0;
+      font-size: 1.4rem;
+      color: #fff;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      border: 1px solid var(--ramadan-gold);
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .leaderboard {
+      margin-top: 50px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      padding: 30px;
+      border: 1px solid var(--ramadan-purple);
+      box-shadow: 0 0 20px rgba(150, 0, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .leaderboard h3 {
+      color: var(--ramadan-gold);
+      border-bottom: 2px solid var(--ramadan-gold);
+      padding-bottom: 15px;
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px var(--ramadan-gold);
+    }
+
+    .leaderboard-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .leaderboard-item:hover {
+      background: rgba(255, 183, 0, 0.1);
+      transform: translateX(-5px);
+    }
+
+    .leaderboard-item:first-child {
+      background: rgba(255, 183, 0, 0.2);
+      border-radius: 8px;
+      border: 1px solid var(--ramadan-gold);
+      position: relative;
+      padding: 20px 15px;
+    }
+
+    .leaderboard-item:first-child::before {
+      content: "🌙";
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+    }
+
+    .leaderboard-item .rank {
+      font-weight: bold;
+      width: 30px;
+      text-align: center;
+      color: var(--ramadan-gold);
+    }
+
+    .leaderboard-item .name {
+      flex-grow: 1;
+      text-align: right;
+      padding-right: 20px;
+    }
+
+    .leaderboard-item .score-value {
+      color: var(--ramadan-gold);
+      font-weight: bold;
+      width: 80px;
+      text-align: left;
+    }
+
+    .restart-btn {
+      background: linear-gradient(45deg, var(--ramadan-gold), var(--neon-blue));
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      border-radius: 50px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-top: 40px;
+      box-shadow: 0 0 20px rgba(255, 183, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .restart-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 183, 0, 0.7);
+    }
+
+    /* ===== Ramadan Special Effects ===== */
+    .ramadan-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background: linear-gradient(45deg, rgba(255, 183, 0, 0.03), rgba(142, 68, 173, 0.03));
+      z-index: 1000;
+      mix-blend-mode: overlay;
+    }
+
+    .glitch-lines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      opacity: 0.3;
+      z-index: 1001;
+    }
+
+    .digital-noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAAPUlEQVRoge3PMREAAAjEsDcD+QckMPcGCTp1xAoAAAAAADZJOtYrqampqampqampqampqampqampmT8eKYQD5UtgK3AAAAAASUVORK5CYII=');
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ===== تحسينات للهواتف المحمولة ===== */
+    @media (max-width: 768px) {
+      .cyber-logo h1 {
+        font-size: 3rem;
+        letter-spacing: 3px;
+      }
+
+      .cyber-logo p {
+        font-size: 1.2rem;
+      }
+
+      .options {
+        grid-template-columns: 1fr;
+      }
+
+      .cyber-title h2 {
+        font-size: 2rem;
+      }
+
+      .welcome-screen {
+        padding: 30px;
+        margin: 20px;
+      }
+
+      .score {
+        font-size: 4rem;
+      }
+
+      .score::before, .score::after {
+        width: 30px;
+      }
+
+      .timer {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- عناصر التأثيرات الخاصة -->
+  <div class="ramadan-overlay"></div>
+  <div class="glitch-lines"></div>
+  <div class="digital-noise"></div>
+  <div class="circuit-lines"></div>
+  <div class="ramadan-circuits">
+    <!-- أمثلة على أضواء LED موزعة عشوائياً -->
+    <div class="ramadan-led" style="top: 10%; left: 20%;"></div>
+    <div class="ramadan-led" style="top: 30%; left: 70%;"></div>
+    <div class="ramadan-led" style="top: 50%; left: 40%;"></div>
+    <div class="ramadan-led" style="top: 80%; left: 80%;"></div>
+  </div>
+
+  <!-- شاشة البداية -->
+  <div id="welcome-screen">
+    <div class="container">
+      <div class="cyber-logo">
+        <h1>عالم السايبر</h1>
+        <p>اختبار رمضان</p>
+      </div>
+      <div class="user-input">
+        <input type="text" placeholder="أدخل اسمك">
+      </div>
+      <button class="start-btn">ابدأ الاختبار</button>
+      <p class="welcome-note">مرحباً بك في <span>اختبار عالم السايبر</span>، استعد لاختبار معلوماتك في رمضان!</p>
+      <p class="ramadan-wishes">رمضان كريم</p>
+    </div>
+    <!-- إضافات زخرفية: فوانيس رمضان متعددة -->
+    <div class="ramadan-lantern" style="top: 10px; right: 20px;"></div>
+    <div class="ramadan-lantern" style="bottom: 20px; left: 40px;"></div>
+    <div class="ramadan-lantern" style="top: 50%; left: 10%; transform: translateY(-50%);"></div>
+    <div class="ramadan-lantern" style="top: 30%; right: 15%; transform: translateY(-30%);"></div>
+    <!-- هلال رمضان بليد أصفر مضيء -->
+    <div class="ramadan-crescent glowing" style="top: 20px; left: calc(50% - 40px);"></div>
+  </div>
+
+  <!-- شاشة الاختبار (مخفية بشكل افتراضي) -->
+  <div id="quiz-container" class="container">
+    <div class="cyber-title">
+      <h2>ابدأ الاختبار</h2>
+      <p>اختبر مهاراتك الآن</p>
+    </div>
+    <!-- محتوى الاختبار يمكن إضافته هنا -->
+  </div>
+
+  <!-- شاشة النتائج (مخفية بشكل افتراضي) -->
+  <div id="results" class="container">
+    <h2>النتائج</h2>
+    <p class="user-result">مرحباً، <span>اسم المستخدم</span>!</p>
+    <div class="score-container">
+      <span class="score">0</span>
+    </div>
+    <p class="score-message">نتيجتك في الاختبار</p>
+    <button class="restart-btn">إعادة الاختبار</button>
+    <div class="leaderboard">
+      <h3>لوحة المتصدرين</h3>
+      <!-- عناصر لوحة المتصدرين -->
+      <div class="leaderboard-item">
+        <span class="rank">1</span>
+        <span class="name">المستخدم الأول</span>
+        <span class="score-value">100</span>
+      </div>
+      <div class="leaderboard-item">
+        <span class="rank">2</span>
+        <span class="name">المستخدم الثاني</span>
+        <span class="score-value">80</span>
+      </div>
+      <!-- يمكن إضافة المزيد -->
+    </div>
+  </div>
+</body>
+</html>
